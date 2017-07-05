@@ -1,0 +1,48 @@
+<md-toolbar>
+  <img src="/assets/logo-nav.png" alt="Aerosmith Messenger"/>
+  <ul class="nav">
+    <li>
+      <a class="menu-item"
+        [routerLink]="['search']"
+        routerLinkActive="link-active">
+        <md-icon>search</md-icon>
+        <!-- <span>Search</span> -->
+      </a>  
+    </li>
+    <li>
+      <a class="menu-item"
+        [routerLink]="['friends']"
+        routerLinkActive="link-active">
+        <md-icon>supervisor_account</md-icon>
+        <!-- <span>Friends</span> -->
+      </a>  
+    </li>
+    <li>
+      <a style="position: relative;" class="menu-item"
+        [routerLink]="['chats']"
+         routerLinkActive="link-active">
+         <md-icon>chat</md-icon>
+        <!-- <span>Chats</span> -->
+        <span class="new-message" style="background-image: url('assets/red_circle.png');" *ngIf="_chatService.newMessagesCount">{{_chatService.newMessagesCount}}</span>
+        </a>
+    </li>
+    
+    <li>
+      <a class="menu-item"
+        [routerLink]="['profile']"
+        routerLinkActive="link-active">
+        <md-icon>account_circle</md-icon>
+        <!-- <span>Profile</span> -->
+      </a>
+    </li>
+    <li>
+      <a class="menu-item"
+        (click)="logout()"
+        [routerLink]="['auth']"
+        routerLinkActive="link-active">
+        <md-icon>power_settings_new</md-icon>
+        <!-- <span>SignOut</span> -->  
+      </a>
+    </li>
+  </ul>
+</md-toolbar>

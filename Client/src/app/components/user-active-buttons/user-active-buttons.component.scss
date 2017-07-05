@@ -1,0 +1,24 @@
+@import '../../colors';
+
+md-card-actions {
+  padding: 0;
+  margin: 10px 0 0 0;
+  .actions {
+    display: inline-block;
+    .friend-button {
+      background-color: $friend-button;
+      color: $button-text;
+    }
+    .delete-button {
+      background-color: $delete-button;
+      color: $button-text;
+    }
+    .disabled-button {
+      background-color: $disabled-button;
+    }
+  }
+  .message-button {
+    background-color: $message-button;
+    color: $button-text;
+  }
+}

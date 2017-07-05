@@ -1,0 +1,35 @@
+<form #loginForm="ngForm" (ngSubmit)="onSignIn()">
+  <md-card>
+    <md-card-title>
+      <md-icon>perm_identity</md-icon>
+      <span>Sign In</span>
+    </md-card-title>
+    <md-card-content>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="user.username"
+          name="username"
+          pattern="[a-zA-Z0-9]{4,30}"
+          required="required"
+          placeholder="Username" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="user.password"
+          name="password"
+          required="required"
+          pattern=".{6,30}"
+          type="password"
+          placeholder="Password" />
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions>
+    <button
+      md-raised-button
+      type="submit" color="primary">
+      <md-icon>done</md-icon>
+      <span>Sign In</span>
+    </button>
+    </md-card-actions>
+  </md-card>
+</form>

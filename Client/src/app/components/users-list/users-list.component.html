@@ -1,0 +1,18 @@
+<ul>
+  <am-user-list-item *ngFor="let user of users"
+    [username]="user['FirstName'] + ' ' + user['LastName']"
+    [image]="user['AvatarUrl']"
+    [id]="user['Id']"
+    [online]="user['Online']" >
+  </am-user-list-item>
+</ul> 
+
+<div class="button-container">
+  <button *ngIf="currentPage<maxPages" (click)="onLoadMore()"
+    md-raised-button
+    color="primary"
+    type="button">
+    <md-icon>cached</md-icon>
+    <span>Load More</span>
+  </button>
+</div>

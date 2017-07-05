@@ -1,0 +1,88 @@
+<form #signupForm="ngForm" (ngSubmit)="onSignUp()">
+  <md-card>
+    <md-card-title>
+        <md-icon>person_add</md-icon>
+        <span>Sign Up</span>
+    </md-card-title>
+    <md-card-content>
+      <md-input-container>
+        <input mdInput
+          name="username"
+          required="required"
+          pattern="[a-zA-Z0-9]{2,30}"
+          placeholder="Username"
+          [(ngModel)]="user.username" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="email"
+          required="required"
+          pattern="^\S+@\S+$"
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="user.email" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="firstName"
+          required="required"
+          pattern="[a-zA-ZА-Яа-яІі]{2,30}"
+          placeholder="First Name"
+          [(ngModel)]="user.firstName" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="lastName"
+          required="required"
+          pattern="[a-zA-ZА-Яа-яІі]{2,30}"
+          placeholder="Last Name"
+          [(ngModel)]="user.lastName" />
+      </md-input-container>
+      <!--
+      <md-input-container>
+        <input mdInput [mdDatepicker]="picker" placeholder="Birth Date">
+        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+      </md-input-container>
+      <md-datepicker
+        #picker
+        [(ngModel)]="user.birthDate"
+        name="BirthDate"
+        ngDefaultControl>
+      </md-datepicker>
+      -->
+      <md-input-container>
+        <input mdInput [(ngModel)]="user.birthDate" placeholder="Birth Date" name="BirthDate">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="password"
+          required="required"
+          pattern=".{6,30}"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="user.password" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="confirmed-password"
+          required="required"
+          pattern=".{6,30}"
+          type="password"
+          placeholder="Confirm Password"
+          [(ngModel)]="user.confirmedPassword" />
+      </md-input-container>
+      <span class="gender">Gender</span>
+      <md-radio-group [(ngModel)]="user.gender" name="gender">
+        <md-radio-button value="Male" color="primary">Male</md-radio-button>
+        <md-radio-button value="Female" color="primary">Female</md-radio-button>
+      </md-radio-group>
+    </md-card-content>
+    <md-card-actions>
+      <button md-raised-button
+        type="submit" color="primary">
+        <md-icon>done</md-icon>
+        <span>Sign Up</span>
+      </button>
+    </md-card-actions>
+  </md-card>
+</form>

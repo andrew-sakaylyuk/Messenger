@@ -1,0 +1,102 @@
+<div class="chat-inner-container">
+  <md-toolbar>
+    <div class="toolbar" fxLayout="row">
+      <button md-icon-button (click)="onChatSideTriggered()">
+        <md-icon>menu</md-icon>
+      </button>
+      <div
+        class="current-contact"
+        fxLayout="row"
+        fxLayoutAlign="start center">
+          <a *ngIf="activeConversation" [routerLink]="['/user', 
+            activeConversation.OtherUserId]" routerLinkActive="link-active">
+            <img class="avatar pointer" [src]="activeConversation.AvatarUrl" />
+          </a>
+          <div fxLayout="column" *ngIf="activeConversation">
+            <span class="name">{{ activeConversation.FirstName 
+              + " " +  activeConversation.LastName }}</span>
+            <span class="status" *ngIf="activeConversation.Online">Online</span>
+          </div>
+      </div>
+      <span fxFlex></span>
+    </div>
+  </md-toolbar>
+
+  <div class="chat-correspondence" fxLayout="column" fxLayoutAlign="end stretch">
+    <!--<perfect-scrollbar #chatScroll class="messages-container"> -->
+     <div #chatScroll (scroll)="getMoreMessages()" style="overflow: scroll;" class="messages-container"> 
+      <div 
+        class="ps-child chat-message"
+        [ngClass]="id == message.SenderId? ( message.New == true? 'unread':''):''"
+        *ngFor="let message of messages.data"
+        [ngSwitch]="message.FirstName"
+        fxLayout="column"
+        fxLayoutAlign="end start">
+          <div
+            class="partner"
+            *ngSwitchCase="activeConversation.FirstName"
+            fxFlexAlign="start"
+            fxLayout="row"
+            fxLayoutAlign="start start">
+              <img class="avatar" [src]="activeConversation.AvatarUrl">
+              <span (click)="showDelButton(message.Id)"
+                class="message mat-elevation-z2"
+                mdTooltip="{{message.DateTime | date: 'HH:mm:ss dd-MM-yyyy'}}">
+                  {{ message.Text }}
+              </span>
+              <button class="delete-message" 
+                (click)="removeMessage(message.Id)" 
+                [id]="message.Id" style="margin-left: 5px" 
+                md-mini-fab>
+                <md-icon>delete</md-icon>
+                </button>
+          </div>
+          <div
+            class="me"
+            *ngSwitchCase="firstName"
+            fxFlexAlign="end"
+            fxLayout="row"
+            fxLayoutAlign="end start">
+              <button class="delete-message" 
+                (click)="removeMessage(message.Id)" 
+                  [id]="message.Id" 
+                  style="margin-right: 5px" 
+                  md-mini-fab>
+                <md-icon>delete</md-icon>
+              </button>
+              <md-chip (click)="showDelButton(message.Id)"
+                class="message mat-elevation-z2"
+                mdTooltip="{{message.DateTime | date: 'HH:mm:ss dd-MM-yyyy'}}">
+                {{ message.Text }}
+              </md-chip>
+              <img class="avatar" [src]="avatarUrl"> 
+          </div>
+      </div>
+      </div>
+    <!--</perfect-scrollbar>-->   
+    <div class="chat-respond"
+      fxLayout="row"
+      fxLayoutAlign="start center">  
+      <span *ngIf="typeMessageStr.length>0" class="typeMessage"> 
+        <md-icon class="typing">create</md-icon>
+        {{ typeMessageStr }}
+      </span>
+      <md-input-container fxFlex>
+        <textarea #textarea
+          mdInput
+          (keyup)="pressKeyTextArea()"
+          (focusout)="notTypeMessage()"
+          (keyup.enter)="sendMessage()"
+          [(ngModel)]="newMessageText"
+          [placeholder]="noConversations? 'You do not have any conversations':'Enter your message...'"
+          [disabled]="noConversations">
+        </textarea>
+      </md-input-container>
+      <button *ngIf="!noConversations==true"
+        (click)="sendMessage()"
+        md-fab color="primary">
+          <md-icon>send</md-icon>
+      </button>
+    </div>
+  </div>
+</div>

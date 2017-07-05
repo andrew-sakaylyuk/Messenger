@@ -1,0 +1,50 @@
+.event-edit {
+  min-width: 350px;
+
+  [md-dialog-actions], md-dialog-action {
+    padding: 12px 0 26px;
+  }
+
+  .content {
+    margin: 24px -24px;
+  }
+
+  .save {
+    margin-left: 12px;
+  }
+}
+
+i.icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+.cal-event-title {
+  text-decoration: none;
+}
+
+mwl-calendar-week-view, mwl-calendar-day-view {
+  .cal-event-title {
+    color: #212121;
+  }
+}
+
+.cal-event-action {
+  color: white;
+
+  i.icon {
+    font-size: 20px;
+  }
+}

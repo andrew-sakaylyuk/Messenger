@@ -1,0 +1,43 @@
+@import '../../colors';
+
+.search{
+  background-color: $card-background;
+  margin: 10px;
+  padding-bottom: 15px;
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    form{
+      width: 100%;
+      max-width: 680px;
+      .group {
+        display: flex;
+        justify-content: center;
+      }
+      md-input-container{
+        width: 100%;
+      }    
+      span.gender {
+        color: #9E9E9E;
+      }  
+      #gender-container{
+        margin: 10px 0 10px 0;
+        md-radio-group {
+          md-radio-button {
+            margin-right: 10px;
+          }
+        }
+      }
+      .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          width: 200px;
+        }       
+      }     
+
+    }
+  }
+}

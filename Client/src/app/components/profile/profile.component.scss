@@ -1,0 +1,77 @@
+@import '../../colors';
+
+.change-profile{
+  display: flex;
+  justify-content: center;
+  md-card{
+    background-color: $card-background;
+    margin: 10px;
+    max-width: 450px;
+    span.card-title{
+        display: table;
+        white-space: nowrap;
+        &:before, &:after {
+          border-top: 1px solid $card-title-line;
+          content: '';
+          display: table-cell;
+          position: relative;
+          top: 0.5em;
+          width: 45%;
+        }
+        &:before { right: 1.5%; }
+        &:after { left: 1.5%; }
+    }
+    md-input-container {
+      width: 100%;
+    }
+    md-radio-group {
+      md-radio-button  {
+        margin-right: 8px;
+      }
+    }
+
+    span.gender {
+      color: $gender-text;
+    }
+    #gender-container{
+      margin: 10px 0 20px 0;
+    }
+    #change-password-button{
+      margin-bottom: 15px;
+    }
+  }  
+
+  #userinfo-container{
+    am-image-uploader{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  }  
+
+  #name {
+    display: flex;
+  }  
+
+  @media screen and (max-width: 660px) {
+    display: inline;
+    md-card{
+      max-width: 620px;
+    } 
+  }
+}
+
+#delete-account-container{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  #delete-account{
+    background-color: $delete-account-button; 
+  }
+}  
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,22 @@
+<div
+  [style.width.px]="width"
+  [style.height.px]="height"
+  class="image-upload-wrapper">
+
+  <div class="image-upload">
+    <img class="round" 
+      [attr.src]='image'
+      [style.width.px]="width" 
+      [style.height.px]="height"
+      [ngClass]="type"
+      alt="Avatar" />
+
+    <input
+      type="file"
+      (change)="fileChange($event)"
+      placeholder="Upload Avatar"
+      accept=".png,.jpg,.jpeg,.bmp" />
+
+  </div>
+
+</div>

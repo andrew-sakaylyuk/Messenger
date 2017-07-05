@@ -1,0 +1,20 @@
+<md-card class="box">
+
+  <div class="photo">
+    <a [routerLink]="['/user', id]"
+       routerLinkActive="link-active">
+      <img md-card-image [src]="image" />
+    </a>
+    <span class="online" *ngIf="online" ></span>
+  </div>
+  
+  <div class="info">
+    <md-card-header>
+      <a [routerLink]="['/user', id]"
+         routerLinkActive="link-active">
+        <md-card-title>{{ username }}</md-card-title>
+      </a>
+    </md-card-header>
+    <am-user-active-buttons [id]="id" ></am-user-active-buttons>
+  </div>
+</md-card>

@@ -1,0 +1,37 @@
+<md-card-actions>
+  <div class="actions" [ngSwitch]="type">
+    <!-- Send Friendship request -->
+    <button
+      md-raised-button class="friend-button"
+      *ngSwitchCase="'add'"
+      (click)="onAdd()">
+        <md-icon>person_add</md-icon>
+    </button>
+    <!-- Confirm Friendship request -->
+    <button
+      md-raised-button class="friend-button"
+      *ngSwitchCase="'confirm'"
+      (click)="onConfirm()">
+        <md-icon>done</md-icon>
+    </button>
+    <!-- Delete Friend color="warn" -->
+    <button
+      md-raised-button class="delete-button"
+      *ngSwitchCase="'delete'"
+      (click)="onDelete()">
+        <md-icon>clear</md-icon>
+    </button> 
+    <!-- Friendship request already exists -->
+    <button
+      md-raised-button disabled class="disabled-button"
+      *ngSwitchCase="'disabled'"
+      (click)="onAdd()">
+        <md-icon>person_add</md-icon>
+    </button>
+  </div>
+  <!-- Show chat with this person -->
+  <button (click)="onSend()" class="message-button"
+    md-raised-button>
+    <md-icon>forum</md-icon>
+  </button>
+</md-card-actions>

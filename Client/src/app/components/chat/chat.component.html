@@ -1,0 +1,21 @@
+<div class="chat">
+  <md-sidenav-container>
+    <md-sidenav
+      class="mat-elevation-z2"
+      mode="side"
+      [opened]="true"
+      #chatSidenav>
+      <am-conversations
+        [conversations]="conversations"
+        (onActiveConversation)="onActiveConversation($event)">
+      </am-conversations>
+    </md-sidenav>
+    <am-correspondence
+      (onCreateConversation)="onCreateConversation($event)"
+      [conversations]="conversations"
+      [noConversations]="noConversations"
+      [activeConversation]="activeConversation"
+      [chatSidenav]="chatSidenav">
+    </am-correspondence>
+  </md-sidenav-container>
+</div>

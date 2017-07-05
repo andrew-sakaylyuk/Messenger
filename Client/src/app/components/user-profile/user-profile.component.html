@@ -1,0 +1,25 @@
+<md-card class="usernifo">
+  <div class="photo">
+    <img md-card-image [src]="avatarUrl" />
+    <span class="online" *ngIf="online" > Online </span>
+  </div>
+  <div class="info">
+    <md-card-header>
+      <md-card-title> 
+    	{{user.firstName}} {{user.lastName}} ({{ user.username }}) 
+      </md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <span> {{user.email}} </span>
+      <span *ngIf="user.birthDate!='0001-01-01'"> Birth Date: {{user.birthDate}} </span>
+      <span *ngIf="user.gender == 'Male'"> Male </span>
+      <span *ngIf="user.gender == 'Female'"> Female </span>
+    </md-card-content>
+    <am-user-active-buttons [id]="id" ></am-user-active-buttons>
+  </div>
+</md-card>
+
+<md-tab-group>
+  <md-tab label="Mutual Friends"><am-mutual-friends [userId]="id"></am-mutual-friends></md-tab>
+  <md-tab label="Shortest Path"><am-shortest-path [userId]="id"></am-shortest-path></md-tab>
+</md-tab-group>

@@ -1,0 +1,53 @@
+@import '../../../colors';
+$height__chat-header: 150px;
+$height__chat-container: calc(100% - #{$height__chat-header});
+
+.chat-conversations-container {
+  height: 100%;
+
+  .chat-conversations {
+    padding-top: 0;
+
+    .chat-conversation {
+      position: relative;
+      cursor: pointer;
+      transition: background .1s linear;
+
+      &:hover {
+        background: $conversation-hover;
+      }
+
+      .last-message {
+        color: $last-message;
+      }
+
+      .online {
+        width: 15px;
+        height: 15px;
+        background-color: $online-circle;
+        position: absolute;
+        top: 46px; 
+        left: 42px;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $online-circle-border;
+      }
+
+      @media screen and (max-width: 450px) {
+        //max-height: 70px;
+        .name {
+          display: none;
+        }
+        .last-message {
+          display: none;
+        }
+      }
+
+    }
+  }
+}
+
+.sidenav-container, .sidenav-scrollbar-container {
+  height: 100%;
+}

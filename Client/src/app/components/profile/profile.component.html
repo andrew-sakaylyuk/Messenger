@@ -1,0 +1,128 @@
+<div class="change-profile">
+  <md-card id="userinfo-container">
+    <am-image-uploader></am-image-uploader>
+    <form #changeUserInfo="ngForm" (ngSubmit)="onChangeUserInfo()">
+      <div id="name">
+      <md-input-container>
+        <input mdInput
+          name="firstName"
+          pattern="[a-zA-ZА-Яа-яІі]{2,30}"
+          placeholder="First Name"
+          [(ngModel)]="user.firstName" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          name="lastName"
+          pattern="[a-zA-ZА-Яа-яІі]{2,30}"
+          placeholder="Last Name"
+          [(ngModel)]="user.lastName" />
+      </md-input-container>
+      </div>
+      <md-input-container>
+        <input mdInput
+          name="email"
+          pattern="^\S+@\S+$"
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="user.email" />
+      </md-input-container>
+      <md-input-container>
+        <input mdInput [(ngModel)]="user.birthDate" placeholder="Birth Date" name="BirthDate">
+      </md-input-container>
+      <span class="gender">Gender </span>
+      <div id="gender-container">
+        <md-radio-group [(ngModel)]="user.gender" name="Gender">
+          <md-radio-button value="Male" color="primary">Male</md-radio-button>
+          <md-radio-button value="Female" color="primary">Female</md-radio-button>
+          <md-radio-button value="Unknown" color="primary">Unknown</md-radio-button>
+        </md-radio-group>
+      </div>
+      <div class="button-container">
+        <button
+          md-raised-button
+          color="primary"
+          type="submit">
+          <md-icon>update</md-icon>
+          <span>Change Userinfo</span>
+        </button>
+      </div>
+    </form>
+  </md-card>
+
+  <div>
+    <md-card>
+    <span class="card-title">Change Username:</span>
+      <form #changeUsername="ngForm" (ngSubmit)="onChangeUserName()">
+        <md-input-container>
+        <input mdInput 
+          name="username"
+          pattern="[a-zA-Z0-9]{4,30}" 
+          [(ngModel)]="user.username"
+          placeholder="Username" />
+      </md-input-container>
+          <div class="button-container">
+            <button
+              md-raised-button
+              color="primary"
+              type="submit">
+              <md-icon>update</md-icon>
+              <span>Change Username</span>
+            </button>
+          </div>
+      </form>
+    </md-card>  
+
+    <md-card>
+      <span class="card-title">Change Password:</span>
+      <form #changePassword="ngForm" (ngSubmit)="onChangePassword(oldPassword.value, newPassword.value, confirmedPassword.value)">
+        <md-input-container>
+          <input mdInput
+            required="required"
+            pattern=".{6,30}"
+            type="password"
+            placeholder="Old Password"
+            #oldPassword />
+        </md-input-container>
+        <md-input-container>
+          <input mdInput
+            required="required"
+            pattern=".{6,30}"
+            type="password"
+            placeholder="New Password"
+            #newPassword />
+        </md-input-container>
+        <md-input-container>
+          <input mdInput
+            required="required"
+            pattern=".{6,30}"
+            type="password"
+            placeholder="Confirm Password"
+            #confirmedPassword />
+        </md-input-container>
+          <div class="button-container" >
+            <button id="change-password-button"
+              md-raised-button
+              color="primary"
+              type="submit">
+              <md-icon>update</md-icon>
+              <span>Change Password</span>
+            </button>
+          </div>
+      </form>
+    </md-card>
+  </div>
+</div>
+
+<div id="delete-account-container">
+  <div class="button-container">
+    <button id="delete-account"
+      (click)="onDeleteAccount()"
+      md-raised-button
+      color="primary"
+      type="button">
+      <md-icon>delete</md-icon>
+      <span>Delete your account</span>
+    </button>
+  </div>
+</div>
+

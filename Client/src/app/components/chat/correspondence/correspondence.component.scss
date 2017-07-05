@@ -1,0 +1,156 @@
+@import '../../../colors';
+
+$height__chat-header: 150px;
+$height__chat-toolbar: 64px;
+$height__chat-container: calc(100% - #{$height__chat-header - $height__chat-toolbar});
+
+
+.chat-inner-container {
+  height: 100%;
+
+  .chat-correspondence {
+    position: relative;
+    background: url('/assets/background.png') repeat;
+    height: calc(100% - #{$height__chat-toolbar + 1});
+
+    // perfect-scrollbar {
+    //   margin-bottom: 103px;
+    // }
+
+    .messages-container {
+      padding: 24px;
+      min-height: calc(100% - #{$height__chat-toolbar});
+      margin-bottom: #{$height__chat-toolbar + 12};
+      z-index: 1;
+
+      .unread {
+          border-radius: 15px;
+          background: $unread-message-background;
+        }
+
+      .chat-message {
+        margin: 15px 0;
+        padding: 4px;
+
+        .message {
+          font-size: 100%;
+          padding: 8px;
+          position: relative;
+          box-shadow: 0 0px 0px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        }
+
+        .partner {
+          .message {
+            background: $partners-message-background;
+            margin-left: 12px;
+
+            &:after {
+              position: absolute;
+              content: "";
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0px 10px 10px 0;
+              border-color: transparent $partners-message-background transparent transparent;
+              top: 0;
+              left: -10px;
+            }
+          }
+        }
+
+        .me {
+          .message {
+            background: $users-message-background;
+            margin-right: 12px;
+
+            &:after {
+              position: absolute;
+              content: "";
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0px 0 10px 10px;
+              border-color: transparent transparent transparent $users-message-background;
+              top: 0;
+              right: -10px;
+            }
+          }
+        }
+
+        .delete-message {
+          display:none;
+          background-color: $delete-message;
+        }
+      }
+    }
+
+    .chat-respond {
+      background: $chat-respond-background;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 12px 24px;
+      border-top: 1px solid #EEE;
+      z-index: 1;
+
+      .typeMessage {
+        position: absolute;
+        border-radius: 5px;
+        background: $typing-background;
+        color: $typing-text;
+        top: -19%;
+        left: 33px;
+        font-size:13px;
+        margin: 0;
+        padding: 0;
+        .typing {
+          font-size: 15px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      button {
+        margin-left: 24px;
+      }
+    }
+  }
+}
+
+md-toolbar {
+  position: relative;
+  border-bottom: 1px solid $correspondence-toolbar-border-bottom;
+  z-index: 2;
+
+  .toolbar {
+    width: 100%;
+    .load-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .current-contact {
+    .avatar {
+      margin: 0 14px 0 10px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 500;
+      padding: 0;
+      margin-top: 4px;
+    }
+
+    .status {
+      font-size: 14px;
+      color: $status-color;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../signin/signin.component';
+
+md-card {
+  md-card-content {
+    span.gender {
+      color: #9E9E9E;
+      margin-bottom: 6px;
+    }
+    md-radio-group {
+      md-radio-button  {
+        margin-right: 8px;
+      }
+    }
+  }
+}

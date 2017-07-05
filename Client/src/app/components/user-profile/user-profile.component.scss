@@ -1,0 +1,55 @@
+@import '../../colors';
+
+.usernifo {
+  margin: 8px;
+  padding: 10px;
+  width: calc(100% - 38px);
+  display: inline-block;
+  
+  .photo{
+    display: flex;
+    justify-content: center;
+    img {
+      margin: 5px;
+      height: 160px;
+      width: 160px;
+      border-radius: 50%;
+    }
+    .online {
+      position: absolute;
+      top: 20px; 
+      right: 20px;
+      color: $online-text;
+    }
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    md-card-header{
+      padding: 0;
+      margin: 0;
+      md-card-title{
+        padding: 0;
+        margin: 0;
+        font-size: 125%;
+      }
+    }
+    md-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      span{
+        font-size: 110%;
+      }
+    }
+  }
+}

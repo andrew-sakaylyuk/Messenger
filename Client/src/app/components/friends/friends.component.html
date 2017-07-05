@@ -1,0 +1,13 @@
+<span class="text" *ngIf="friendsCount>0">
+  Friends ({{ friendsCount }})
+</span>
+<am-users-list (onLoad)="countFriends($event)"
+  [type]="'friends'">
+</am-users-list>
+
+<span class="text" *ngIf="requestsCount>0">
+  Friendship Requests ({{ requestsCount }})
+</span>
+<am-users-list (onLoad)="countRequests($event)"
+  [type]="'requests'">
+</am-users-list>

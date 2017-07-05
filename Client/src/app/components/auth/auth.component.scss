@@ -1,0 +1,13 @@
+.image-wrapper {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    max-height: 200px;
+    margin: auto;
+  }
+}

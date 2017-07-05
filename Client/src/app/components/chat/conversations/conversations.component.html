@@ -1,0 +1,20 @@
+<div class="sidenav-container">
+  <div class="chat-conversations-container" fxLayout="column">
+    <perfect-scrollbar>
+      <md-nav-list class="chat-conversations">
+        <md-list-item
+          class="chat-conversation"
+          (click)="setActiveConversation(conversation)"
+          *ngFor="let conversation of conversations.data | reverse" md-ripple>
+            <img [src]="conversation.AvatarUrl" md-list-avatar>
+            <h3 class="name" md-line>{{conversation.FirstName}} {{conversation.LastName}}
+              <span *ngIf="conversation.NewMessagesCount>0">({{conversation.NewMessagesCount}})</span>
+              </h3>
+            <span class="online" *ngIf="conversation.Online"></span>
+            <p class="last-message" md-line> {{conversation.Text}}</p>
+            <p class="last-message" md-line> {{conversation.DateTime}}</p>
+        </md-list-item>
+      </md-nav-list>
+    </perfect-scrollbar>
+  </div>
+</div>
